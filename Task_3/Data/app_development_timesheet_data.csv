@@ -1,0 +1,4 @@
+id,employee_id,project_name,hours_worked,work_date
+1,1,Project A,8.50,2024-10-01
+2,2,Project B,7.00,2024-10-02
+3,1,Project A,6.00,2024-10-03

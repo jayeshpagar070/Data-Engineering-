@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD:   
+      MYSQL_DATABASE: Fugetron_Employee   
+    volumes:
+      - db_data:/var/lib/mysql  
+
+  app:
+    build: .
+    restart: on-failure 
+    environment:
+      DB_HOST: db  
+      DB_USER: root
+      DB_PASSWORD: 
+      DB_NAME: Fugetron_Employee
+    volumes:
+      - ./Dataset:/TASK_2/Dataset  
+    depends_on:
+      - db
+    command: python /script.py  
+
+volumes:
+  db_data:  
